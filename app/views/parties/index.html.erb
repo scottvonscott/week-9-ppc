@@ -1,0 +1,7 @@
+<h1>All Parties</h1>
+
+<ul>
+    <% @parties.each do |p| %>
+        <li><%= p.name %> - <%= p.date %></li>
+    <% end %>
+</ul>
