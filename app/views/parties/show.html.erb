@@ -3,7 +3,7 @@
 <p>Budget: $<%= @party.budget %></p>
 
 
-<p><i><%= @party.private? %> Party</i></p>
+<p><i><%= private?(@party) %> Party</i></p>
 
 
 <%= link_to 'All Parties', parties_path %>

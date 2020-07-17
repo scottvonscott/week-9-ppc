@@ -1,7 +1,14 @@
 class Party < ApplicationRecord
+    validate :future_party
 
-    def private?
-        self.private ? 'Private' : 'Public'
-    end    
+    def future_party
+        if self.date < Date.today
+            self.errors.add(:date, "Can't add past dates!")
+        end
+    end
+
+    def self.search(query)
+        self.where("name like ? OR date like ?", "%#{query}%", "%#{query}%")
+    end
 
 end

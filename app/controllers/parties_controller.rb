@@ -1,6 +1,10 @@
 class PartiesController < ApplicationController
     def index
+        if params[:q]
+        @parties = Party.search(params[:q])
+        else
         @parties = Party.all
+        end
     end
 
     def new

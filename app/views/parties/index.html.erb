@@ -1,5 +1,12 @@
 <h1>All Parties</h1>
 
+
+<%= form_with(url: "/parties", method: "get", local: true) do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
 <ul>
     <% @parties.each do |p| %>
         <li><%= link_to p.name, party_path(p) %> - <%= p.date %></li>
